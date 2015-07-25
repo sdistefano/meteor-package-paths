@@ -355,8 +355,8 @@ withPrereqs = (files) ->
 
 
 putHtmlFirst = (files) ->
-  notHtml = files.filter (file) -> fsPath.extname(file.path) isnt '.html'
-  result  = files.filter (file) -> fsPath.extname(file.path) is '.html'
+  notHtml = files.filter (file) -> not (fsPath.extname(file.path) in HTML_EXTENSIONS)
+  result  = files.filter (file) -> fsPath.extname(file.path) in HTML_EXTENSIONS
   result.add(notHtml)
   result
 
